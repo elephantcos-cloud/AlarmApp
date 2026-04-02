@@ -10,10 +10,10 @@ jobs:
 
     steps:
       - name: Code নামাও
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Java 17 সেটআপ করো
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -31,7 +31,7 @@ jobs:
         run: ./gradlew assembleDebug
 
       - name: APK আপলোড করো
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AlarmApp-APK
           path: app/build/outputs/apk/debug/app-debug.apk
