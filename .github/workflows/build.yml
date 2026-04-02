@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,14 +21,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Gradle Wrapper JAR ডাউনলোড করো
+      - name: Gradle ডাউনলোড ও Wrapper তৈরি করো
         run: |
-          mkdir -p gradle/wrapper
-          curl -L https://github.com/nicowillis/gradle-wrapper-jar/raw/main/gradle-wrapper.jar \
-          -o gradle/wrapper/gradle-wrapper.jar
-
-      - name: gradlew কে permission দাও
-        run: chmod +x gradlew
+          wget -q https://services.gradle.org/distributions/gradle-8.2-bin.zip -O /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /tmp/gradle
+          /tmp/gradle/gradle-8.2/bin/gradle wrapper --gradle-version 8.2 --distribution-type bin
+          chmod +x gradlew
 
       - name: APK Build করো
         run: ./gradlew assembleDebug
