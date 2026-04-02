@@ -1,0 +1,31 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Code নামাও
+        uses: actions/checkout@v3
+
+      - name: Java 17 সেটআপ করো
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: gradlew কে permission দাও
+        run: chmod +x gradlew
+
+      - name: APK Build করো
+        run: ./gradlew assembleDebug
+
+      - name: APK আপলোড করো
+        uses: actions/upload-artifact@v3
+        with:
+          name: AlarmApp-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
