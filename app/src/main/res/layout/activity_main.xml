@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/background">
+
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- App নাম -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⏰ এলার্ম অ্যাপ"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Time Picker -->
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- সেট বাটন -->
+    <Button
+        android:id="@+id/btnSetAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="✅ এলার্ম সেট করুন"
+        android:textSize="16sp"
+        android:backgroundTint="@color/primary"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- বাতিল বাটন -->
+    <Button
+        android:id="@+id/btnCancelAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="❌ এলার্ম বাতিল করুন"
+        android:textSize="16sp"
+        android:backgroundTint="@color/red"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Status Text -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:textColor="@color/primary"/>
+
+</LinearLayout>
